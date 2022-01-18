@@ -33,10 +33,10 @@
         <h2 class="font-bold mb-2 uppercase">Ingredienser</h2>
         <h3 class="font-bold mb-1">Botten</h3>
         <ul>
-          <li>100 g margarin</li>
-          <li><IngredientItem :amount="3" unit="dl" name="tattarijauhoja" /></li>
-          <li><IngredientItem name="salt" :amount="0.5" unit="tsk" /></li>
-          <li><IngredientItem name="mörk lager-öl" :amount="1" unit="dl" /></li>
+          <IngredientItem :amount="100" unit="g" name="margarin" />
+          <IngredientItem :amount="3" unit="dl" name="tattarijauhoja" />
+          <IngredientItem name="salt" :amount="0.5" unit="tsk" />
+          <IngredientItem name="mörk lager-öl som är en lite längre ingrediens" :amount="1" unit="dl" />
         </ul>
 
         <h3>Fyllning</h3>
@@ -65,13 +65,12 @@
       <div class="instructions">
         <h2 class="font-bold mb-2 uppercase">Instruktioner</h2>
         <ol class="recipe-steps">
-          <li v-for="n in 10" :key="n" class="mb-2">
-            <span class="text-sm font-bold pr-2">{{ n }}</span>
-            <RecipeStep
-              class="font-serif"
-              description="Lorem ipsum dolor sit amet, <time>30 min</time> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."
+          <RecipeStep
+            v-for="n in 10" :key="n"
+            class="mb-2"
+            :step-number="n"
+            description="Lorem ipsum dolor sit amet, <time>30 min</time> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."
             />
-          </li>
         </ol>
       </div>
     </section>

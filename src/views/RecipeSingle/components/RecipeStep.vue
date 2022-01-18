@@ -1,11 +1,18 @@
 <template>
-  <span tabindex="0" :class="{ used: toggled }" @click="toggle" @keydown.enter="toggle" v-html="description"></span>
+  <li @click="toggle" @keydown.enter="toggle">
+    <span class="text-sm font-bold pr-2 dark:text-neutral-200">{{ stepNumber }}</span>
+    <span class="font-serif" tabindex="0" :class="{ used: toggled }" v-html="description"></span>
+  </li>
 </template>
 
 <script>
 export default {
   name: 'RecipeStep',
   props: {
+    stepNumber: {
+      type: [String, Number],
+      default: 0,
+    },
     description: {
       type: String,
       default: '',
@@ -25,7 +32,7 @@ export default {
 </script>
 
 <style scoped>
-span {
+li {
   @apply cursor-pointer;
 }
 .used {

@@ -1,7 +1,9 @@
 <template>
-  <span tabindex="0" :class="{ used: toggled }" @click="toggle" @keydown.enter="toggle">
-    {{ amount }} {{ unit }} {{ name }}
-  </span>
+  <li @click="toggle" @keydown.enter="toggle">
+    <span tabindex="0" :class="{ used: toggled }">
+      {{ amount }} {{ unit }} {{ name }}
+    </span>
+  </li>
 </template>
 
 <script>
@@ -35,7 +37,7 @@ export default {
 </script>
 
 <style scoped>
-span {
+li {
   @apply cursor-pointer;
 }
 .used {
