@@ -3,6 +3,8 @@ import App from './App.vue';
 import store from './store';
 import router from './router';
 
+import './styles/styles.css';
+
 const app = createApp({
   render() {
     return h(App);
