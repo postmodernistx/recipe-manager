@@ -29,13 +29,13 @@ span {
   @apply cursor-pointer;
 }
 .used {
-  @apply line-through text-slate-400;
+  @apply line-through text-slate-400 dark:text-gray-600;
 }
 span ::v-deep(time) {
-  @apply font-mono text-emerald-800 text-xs;
+  @apply font-mono text-emerald-800 text-xs dark:text-emerald-500;
 }
 
 .used ::v-deep(time) {
-  @apply text-slate-400;
+  @apply text-slate-400 dark:text-gray-600;
 }
 </style>

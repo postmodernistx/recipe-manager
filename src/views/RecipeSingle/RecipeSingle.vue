@@ -31,7 +31,6 @@
     <section class="six-columns">
       <div class="mb-8 ingredients">
         <h2 class="font-bold mb-2 uppercase">Ingredienser</h2>
-        <!-- todo: scale recipe -->
         <h3 class="font-bold mb-1">Botten</h3>
         <ul>
           <li>100 g margarin</li>
@@ -139,6 +138,10 @@ export default {
   @apply col-span-4;
 }
 
+h1, h2, h3 {
+  @apply dark:text-slate-200;
+}
+
 h3 {
   @apply font-bold mb-1 mt-2;
 }
@@ -148,7 +151,7 @@ h3 {
 }
 
 .with-bg {
-  background-color: #ffffff;
+  @apply bg-slate-50 dark:bg-slate-900 dark:text-slate-400;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ff002f' fill-opacity='0.06' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
 </style>

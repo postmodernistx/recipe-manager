@@ -39,6 +39,6 @@ span {
   @apply cursor-pointer;
 }
 .used {
-  @apply line-through text-slate-400;
+  @apply line-through text-slate-400 dark:text-gray-600;
 }
 </style>

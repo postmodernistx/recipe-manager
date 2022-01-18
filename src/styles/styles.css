@@ -7,5 +7,5 @@ body {
 }
 
 a {
-  @apply text-cyan-800 underline;
+  @apply text-cyan-800 underline dark:text-emerald-500;
 }
