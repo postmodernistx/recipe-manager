@@ -1,19 +1,21 @@
 <template>
   <div>
-    <h1>{{ locale.app_title }}</h1>
+    <h1 class="text-2xl font-bold my-4 text-center">{{ locale.app_title }}</h1>
+
     <div v-if="!$store.getters.allRecipesLoaded">
       {{ locale.loading }}
     </div>
+
     <div v-else>
-      <section class="filters">
-        <select @change="filterRecipeList" v-model="recipeFilter">
+      <section class="text-center my-8">
+        <select v-model="recipeFilter" @change="filterRecipeList">
           <option>{{ locale.all_categories }}</option>
           <option v-for="category in $store.getters.allCategories" :key="category">{{ category }}</option>
         </select>
       </section>
 
-      <ul v-for="recipe in filteredRecipes" :key="recipe.id">
-        <li>
+      <ul class="max-w-lg mx-auto">
+        <li v-for="recipe in filteredRecipes" :key="recipe.id" class="mb-4">
           <router-link :to="{ name: 'RecipeSingle', params: { name: recipe.id } }">{{ recipe.name }}</router-link>
         </li>
       </ul>

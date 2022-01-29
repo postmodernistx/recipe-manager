@@ -11,8 +11,9 @@
         <h1 class="mt-4 text-3xl font-serif">{{ recipeData.name }}</h1>
       </div>
 
-      <div class="text-center max-w-lg mx-auto mt-8 mb-12 font-serif text-sm md:grid md:grid-cols-5 md:justify-between
-      print:grid print:justify-between print:grid-cols-5 print:my-2">
+      <div
+        class="text-center max-w-lg mx-auto mt-8 mb-12 font-serif text-sm md:grid md:grid-cols-5 md:justify-between print:grid print:justify-between print:grid-cols-5 print:my-2"
+      >
         <div class="metadata" :title="locale.recipeData.yields">
           <CakeIcon class="h-5 w-5" />
           <span>{{ recipeData.metadata.yields }}</span>
@@ -38,7 +39,6 @@
 
       <section class="six-columns">
         <div class="mb-8 ingredients print:grid print:grid-cols-2">
-
           <div>
             <h2 class="font-bold mb-2 uppercase">{{ locale.recipeData.ingredients }}</h2>
 
@@ -227,7 +227,7 @@ h3 {
 }
 
 h3 {
-  @apply font-bold mb-1 mt-2;
+  @apply font-bold mb-1 mt-4 print:mt-2;
 }
 
 .metadata {
