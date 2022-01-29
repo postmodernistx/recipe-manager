@@ -3,7 +3,7 @@
   "description": "Short description of recipe, a tiny introduction.",
   "metadata": {
     "yields": 6,
-    "totalTimeMinutess": 90,
+    "totalTimeMinutes": 90,
     "activeTimeMinutes": 30,
     "passiveTimeMinutes": 60,
     "rating": 3
@@ -47,7 +47,7 @@
     }
   ],
   "steps": [
-    "Peel and chop potatoes, then boil for <time>30 min</time>",
+    "Peel and chop potatoes, then boil for <time>30 min</time>.",
     "Crunch nachos and sprinkle on top of the soup.",
     "Serve with homebaked bread."
   ],

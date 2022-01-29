@@ -14,6 +14,9 @@ const recipeStore = {
     allCategories(state) {
       return state.categories;
     },
+    getRecipeById: state => recipeId => {
+      return state.recipes.filter(recipe => recipe.id === recipeId)[0];
+    },
   },
   mutations: {
     saveRecipe(state, payload) {

@@ -1,111 +1,110 @@
 <template>
   <section class="px-8 py-8 with-bg">
-    <div class="font-bold text-center max-w-lg mx-auto mb-8">
-      <span class="border-b-2 border-b-red-600 text-xs text-red-600 uppercase">Recept</span>
-      <div class="font-normal font-serif mt-4 max-w-sm mx-auto">
-        Simppeli kasvispiirakka syntyy punasipulista, jonka täyteläistä makumaailmaa
-        tumma olut suvereenisti täydentää.
-      </div>
-      <h1 class="mt-4 text-3xl font-serif">Jauhelihapasta olutsipulilla</h1>
-    </div>
-
-    <div class="text-center max-w-lg mx-auto mt-8 mb-12 font-serif text-sm md:grid md:grid-cols-5 md:justify-between">
-      <div class="metadata" title="Portioner">
-        <CakeIcon class="h-5 w-5" />
-        <span>6</span>
-      </div>
-      <div class="metadata" title="Total tid">
-        <ClockIcon class="h-5 w-5" />
-        <span>1,5 h</span>
-      </div>
-      <div class="metadata" title="Aktiv tid">
-        <ChartPieIcon class="h-5 w-5" />
-        <span>30 min</span>
-      </div>
-      <div class="metadata" title="Passiv tid">
-        <FastForwardIcon class="h-5 w-5" />
-        <span>60 min</span>
+    <div v-if="recipeData">
+      <div class="font-bold text-center max-w-lg mx-auto mb-8">
+        <span class="border-b-2 border-b-red-600 text-xs text-red-600 uppercase">Recept</span>
+        <div class="font-normal font-serif mt-4 max-w-sm mx-auto">
+          {{ recipeData.description }}
+        </div>
+        <h1 class="mt-4 text-3xl font-serif">{{ recipeData.name }}</h1>
       </div>
 
-      <div class="metadata" title="Betyg">
-        <StarIcon class="h-5 w-5" />
-        <span>3</span>
-      </div>
-    </div>
+      <div class="text-center max-w-lg mx-auto mt-8 mb-12 font-serif text-sm md:grid md:grid-cols-5 md:justify-between">
+        <div class="metadata" title="Portioner">
+          <CakeIcon class="h-5 w-5" />
+          <span>{{ recipeData.metadata.yields }}</span>
+        </div>
+        <div class="metadata" title="Total tid">
+          <ClockIcon class="h-5 w-5" />
+          <span>{{ recipeData.metadata.totalTimeMinutes }}</span>
+        </div>
+        <div class="metadata" title="Aktiv tid">
+          <ChartPieIcon class="h-5 w-5" />
+          <span>{{ recipeData.metadata.activeTimeMinutes }}</span>
+        </div>
+        <div class="metadata" title="Passiv tid">
+          <FastForwardIcon class="h-5 w-5" />
+          <span>{{ recipeData.metadata.passiveTimeMinutes }}</span>
+        </div>
 
-    <section class="six-columns">
-      <div class="mb-8 ingredients">
-        <h2 class="font-bold mb-2 uppercase">Ingredienser</h2>
-        <h3 class="font-bold mb-1">Botten</h3>
-        <ul>
-          <IngredientItem :amount="100" unit="g" name="margarin" />
-          <IngredientItem :amount="3" unit="dl" name="tattarijauhoja" />
-          <IngredientItem name="salt" :amount="0.5" unit="tsk" />
-          <IngredientItem name="mörk lager-öl som är en lite längre ingrediens" :amount="1" unit="dl" />
-        </ul>
-
-        <h3>Fyllning</h3>
-        <ul>
-          <li>100 g pinjenötter</li>
-          <li>1 liten vitlöksklyfta</li>
-        </ul>
-
-        <div class="mt-12">
-          <h3>Näringsvärde</h3>
-          <ul>
-            <li>360 kcal totalt</li>
-            <li>145 kcal per portion</li>
-          </ul>
-
-          <h3>Kategorier</h3>
-          <ul>
-            <li>Soppor</li>
-            <li>Pasta</li>
-            <li>Öl</li>
-            <li>Med dryckesförslag</li>
-          </ul>
+        <div class="metadata" title="Betyg">
+          <StarIcon class="h-5 w-5" />
+          <span>{{ recipeData.metadata.rating }}</span>
         </div>
       </div>
 
-      <div class="instructions">
-        <h2 class="font-bold mb-2 uppercase">Instruktioner</h2>
-        <ol class="recipe-steps">
-          <RecipeStep
-            v-for="n in 10" :key="n"
-            class="mb-2"
-            :step-number="n"
-            description="Lorem ipsum dolor sit amet, <time>30 min</time> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."
+      <section class="six-columns">
+        <div class="mb-8 ingredients">
+          <h2 class="font-bold mb-2 uppercase">Ingredienser</h2>
+
+          <template v-for="(ingredientGroup, index) in recipeData.ingredients" :key="`ig-${index}`">
+            <h3 class="font-bold mb-1">{{ ingredientGroup.groupName }}</h3>
+            <ul>
+              <IngredientItem
+                v-for="(item, index2) in ingredientGroup.components"
+                :key="`ig-${index}-component-${index2}`"
+                :amount="item.amount"
+                :unit="item.unit"
+                :name="item.product"
+              />
+            </ul>
+          </template>
+
+          <div class="mt-12">
+            <h3>Näringsvärde</h3>
+            <ul>
+              <li>360 kcal totalt</li>
+              <li>145 kcal per portion</li>
+            </ul>
+
+            <h3>Kategorier</h3>
+            <ul>
+              <li>Soppor</li>
+              <li>Pasta</li>
+              <li>Öl</li>
+              <li>Med dryckesförslag</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="instructions">
+          <h2 class="font-bold mb-2 uppercase">Instruktioner</h2>
+          <ol class="recipe-steps">
+            <RecipeStep
+              v-for="(step, index) in recipeData.steps"
+              :key="`step-${index}`"
+              class="mb-2"
+              :step-number="index + 1"
+              :description="step"
             />
-        </ol>
-      </div>
-    </section>
-
-    <section class="two-columns">
-      <div class="font-bold my-8">
-        <span class="border-b-2 border-b-red-600 text-xs text-red-600 uppercase">Dryck</span>
-        <div class="font-normal mt-4">
-          Simppeli kasvispiirakka syntyy punasipulista, jonka täyteläistä makumaailmaa
-          tumma olut suvereenisti täydentää.
+          </ol>
         </div>
-      </div>
+      </section>
 
-      <div class="font-bold my-8">
-        <span class="border-b-2 border-b-red-600 text-xs text-red-600 uppercase">Information</span>
-        <div class="font-normal mt-4">
-          Simppeli kasvispiirakka syntyy punasipulista, jonka täyteläistä makumaailmaa
-          tumma olut suvereenisti täydentää.
+      <section class="two-columns">
+        <div class="font-bold my-8">
+          <span class="border-b-2 border-b-red-600 text-xs text-red-600 uppercase">Dryck</span>
+          <div class="font-normal mt-4">
+            {{ recipeData.drink }}
+          </div>
         </div>
-      </div>
 
-      <div class="font-bold my-8">
-        <span class="border-b-2 border-b-red-600 text-xs text-red-600 uppercase">Källa</span>
-        <div class="font-normal mt-4">
-          <a href="https://ica.se/recept" target="_blank" rel="noopener noreferrer">ICA Recept</a>
-          | 2022-01-20
+        <div class="font-bold my-8">
+          <span class="border-b-2 border-b-red-600 text-xs text-red-600 uppercase">Information</span>
+          <div class="font-normal mt-4">
+            {{ recipeData.information }}
+          </div>
         </div>
-      </div>
-    </section>
 
+        <div class="font-bold my-8">
+          <span class="border-b-2 border-b-red-600 text-xs text-red-600 uppercase">Källa</span>
+          <div class="font-normal mt-4">
+            <a :href="recipeData.source.url" target="_blank" rel="noopener noreferrer">{{ recipeData.source.name }}</a>
+            | {{ recipeData.source.date }}
+          </div>
+        </div>
+      </section>
+    </div>
   </section>
 </template>
 
@@ -118,6 +117,20 @@ import { CakeIcon, ClockIcon, FastForwardIcon, ChartPieIcon, StarIcon } from '@h
 export default {
   name: 'RecipeSingle',
   components: { RecipeStep, IngredientItem, CakeIcon, ClockIcon, FastForwardIcon, ChartPieIcon, StarIcon },
+  data() {
+    return {
+      recipeData: null,
+    };
+  },
+  mounted() {
+    console.log('mounted');
+    this.getRecipeData();
+  },
+  methods: {
+    getRecipeData() {
+      this.recipeData = this.$store.getters.getRecipeById(this.$route.params.name);
+    },
+  },
 };
 </script>
 
@@ -142,7 +155,9 @@ export default {
   @apply col-span-4;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   @apply dark:text-slate-200;
 }
 
