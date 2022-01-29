@@ -2,6 +2,7 @@ node_modules
 dist
 dist-ssr
 *.local
+docs
 
 # Ignore all recipes except for sample recipes
 src/data/recipes/**.json
