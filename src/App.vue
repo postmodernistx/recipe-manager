@@ -7,6 +7,10 @@ import PageHeader from './components/fixtures/PageHeader.vue';
 <template>
   <PageHeader />
   <section class="router-view">
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
   </section>
 </template>

@@ -184,6 +184,12 @@ export default {
   },
   mounted() {
     this.getRecipeData();
+    this.$watch(
+      () => this.$route.params,
+      () => {
+        this.getRecipeData();
+      }
+    );
   },
   methods: {
     getRecipeData() {
