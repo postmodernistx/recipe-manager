@@ -25,6 +25,10 @@ export default {
   },
   methods: {
     toggle() {
+      if (!window.getSelection().isCollapsed) {
+        // User is selecting text, rather than clicking to toggle recipe step
+        return;
+      }
       this.toggled = !this.toggled;
     },
   },
