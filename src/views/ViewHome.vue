@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1>Recipe Manager</h1>
+    <h1>{{ locale.app_title }}</h1>
     <div v-if="!$store.getters.allRecipesLoaded">
-      Loading…
+      {{ locale.loading }}
     </div>
     <div v-else>
       <section class="filters">
         <select @change="filterRecipeList" v-model="recipeFilter">
-          <option>Alla kategorier</option>
+          <option>{{ locale.all_categories }}</option>
           <option v-for="category in $store.getters.allCategories" :key="category">{{ category }}</option>
         </select>
       </section>
@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       recipeList: [],
-      recipeFilter: 'Alla kategorier',
+      recipeFilter: this.locale.all_categories,
       filteredRecipes: [],
     };
   },
@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     filterRecipeList() {
-      if (this.recipeFilter === 'Alla kategorier') {
+      if (this.recipeFilter === this.locale.all_categories) {
         this.filteredRecipes = this.recipeList;
         return;
       }

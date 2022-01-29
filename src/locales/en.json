@@ -1,0 +1,23 @@
+{
+  "home": "Home",
+  "app_title": "Recipe Manager",
+  "loading": "Loading",
+  "all_categories": "All categories",
+  "recipe": "Recipe",
+  "total": "in total",
+  "per_serving": "per serving",
+  "categories": "Categories",
+  "recipeData": {
+    "yields": "Yields",
+    "totalTime": "Total time",
+    "activeTime": "Active time",
+    "passiveTime": "Passive time",
+    "rating": "Rating",
+    "instructions": "Instructions",
+    "ingredients": "Ingredients",
+    "nutritionalValue": "Nutritional value",
+    "drink": "Pairs with",
+    "information": "Information",
+    "source": "Source"
+  }
+}

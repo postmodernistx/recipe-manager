@@ -2,7 +2,6 @@ import { createApp, h, watch } from 'vue';
 import App from './App.vue';
 import store from './store';
 import router from './router';
-
 import './styles/styles.css';
 
 const app = createApp({
@@ -11,6 +10,15 @@ const app = createApp({
   },
 });
 
+// ------------------------------------------------------------
+// ------------------------------ 🌍 Change language here -----
+// ------------------------------------------------------------
+import locale from './locales/en.json';
+app.config.globalProperties.locale = locale;
+
+// ------------------------------------------------------------
+// ------------------------------ 🚀 MOUNT APP ----------------
+// ------------------------------------------------------------
 app.use(store);
 app.use(router);
 

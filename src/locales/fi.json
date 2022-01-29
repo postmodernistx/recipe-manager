@@ -1,0 +1,23 @@
+{
+  "home": "Etusivu",
+  "app_title": "Reseptejä",
+  "loading": "Ladataan",
+  "all_categories": "Kaikki kategoriat",
+  "recipe": "Resepti",
+  "total": "yhteensä",
+  "per_serving": "per annos",
+  "categories": "Kategoriat",
+  "recipeData": {
+    "yields": "Annokset",
+    "totalTime": "Kokonaisaika",
+    "activeTime": "Aktiivinen aika",
+    "passiveTime": "Passiivinen aika",
+    "rating": "Arvio",
+    "instructions": "Valmistus",
+    "ingredients": "Ainesosat",
+    "nutritionalValue": "Ravintoarvo",
+    "drink": "Juomasuositus",
+    "information": "Lisätiedot",
+    "source": "Lähde"
+  }
+}

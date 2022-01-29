@@ -1,7 +1,7 @@
 <template>
   <header>
-    <nav>
-      <router-link :to="{ name: 'ViewHome' }">Home</router-link>
+    <nav class="p-4">
+      <router-link :to="{ name: 'ViewHome' }">{{ locale.home }}</router-link>
     </nav>
   </header>
 </template>

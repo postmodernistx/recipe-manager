@@ -1,0 +1,23 @@
+{
+  "home": "Hem",
+  "app_title": "Receptdatabas",
+  "loading": "Laddar",
+  "all_categories": "Alla kategorier",
+  "recipe": "Recept",
+  "total": "totalt",
+  "per_serving": "per portion",
+  "categories": "Kategorier",
+  "recipeData": {
+  "yields": "Portioner",
+    "totalTime": "Total tid",
+    "activeTime": "Aktiv tid",
+    "passiveTime": "Passiv tid",
+    "rating": "Betyg",
+    "instructions": "Instruktioner",
+    "ingredients": "Ingredienser",
+    "nutritionalValue": "Näringsvärde",
+    "drink": "Dryck",
+    "information": "Information",
+    "source": "Källa"
+  }
+}
