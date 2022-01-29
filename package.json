@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.5",
+    "gsap": "^3.9.1",
     "vue": "^3.2.25",
     "vue-router": "4",
     "vuex": "^4.0.0-0"
