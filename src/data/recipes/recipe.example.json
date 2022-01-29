@@ -1,6 +1,6 @@
 {
-  "name": "Recipe Name",
-  "description": "Short description of recipe, a tiny introduction.",
+  "name": "Cotton candy cake",
+  "description": "A fluffy, pink sugar dream cake. Goes well for birthdays and where clowns are.",
   "metadata": {
     "yields": 6,
     "totalTimeMinutes": 90,
@@ -9,24 +9,24 @@
     "rating": 3
   },
   "categories": [
-    "Soups",
-    "Pasta",
+    "Cakes",
+    "Birthday",
     "With drink suggestion"
   ],
   "nutritionKcalTotal": 360,
   "ingredients": [
     {
-      "groupName": "Soup",
+      "groupName": "Base",
       "components": [
         {
           "amount": 1000,
           "unit": "g",
-          "product": "water"
+          "product": "cotton candy"
         },
         {
-          "amount": 3,
-          "unit": "dl",
-          "product": "potatoes"
+          "amount": 300,
+          "unit": "g",
+          "product": "flour"
         },
         {
           "amount": 0.5,
@@ -47,12 +47,12 @@
     }
   ],
   "steps": [
-    "Peel and chop potatoes, then boil for <time>30 min</time>.",
-    "Crunch nachos and sprinkle on top of the soup.",
-    "Serve with homebaked bread."
+    "Halvah tootsie roll marzipan marshmallow lemon drops shortbread danish jelly for <time>30 min</time>.",
+    "Biscuit tiramisu bonbon sweet roll jelly fruitcake carrot cake pudding.",
+    "Candy bonbon candy canes icing muffin bonbon."
   ],
-  "drink": "Some text about suitable drink choices.",
-  "information": "Extra information can go here if needed",
+  "drink": "Pairs well with fruit juice.",
+  "information": "Served at Kim's birthday party, was a success.",
   "source": {
     "name": "Someone's cooking blog",
     "date": "2022-01-20",
