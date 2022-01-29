@@ -42,7 +42,7 @@
           <div>
             <h2 class="font-bold mb-2 uppercase">{{ locale.recipeData.ingredients }}</h2>
 
-            <template v-for="(ingredientGroup, index) in recipeData.ingredients" :key="`ig-${index}`">
+            <template v-for="(ingredientGroup, index) in recipeData.ingredients" :key="`ig-${recipeData.id}-${index}`">
               <h3 class="font-bold mb-1">{{ ingredientGroup.groupName }}</h3>
               <ul>
                 <IngredientItem
@@ -75,7 +75,7 @@
           <ol class="recipe-steps">
             <RecipeStep
               v-for="(step, index) in recipeData.steps"
-              :key="`step-${index}`"
+              :key="`step-${recipeData.id}-${index}`"
               class="mb-2"
               :step-number="index + 1"
               :description="step"
