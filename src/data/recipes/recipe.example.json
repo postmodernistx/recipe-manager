@@ -1,0 +1,61 @@
+{
+  "name": "Recipe Name",
+  "description": "Short description of recipe, a tiny introduction.",
+  "metadata": {
+    "yields": 6,
+    "totalTimeMinutess": 90,
+    "activeTimeMinutes": 30,
+    "passiveTimeMinutes": 60,
+    "rating": 3
+  },
+  "categories": [
+    "Soups",
+    "Pasta",
+    "With drink suggestion"
+  ],
+  "nutritionKcalTotal": 360,
+  "ingredients": [
+    {
+      "groupName": "Soup",
+      "components": [
+        {
+          "amount": 1000,
+          "unit": "g",
+          "product": "water"
+        },
+        {
+          "amount": 3,
+          "unit": "dl",
+          "product": "potatoes"
+        },
+        {
+          "amount": 0.5,
+          "unit": "tbsp",
+          "product": "salt"
+        }
+      ]
+    },
+    {
+      "groupName": "Topping",
+      "components": [
+        {
+          "amount": 20,
+          "unit": "g",
+          "product": "nachos"
+        }
+      ]
+    }
+  ],
+  "steps": [
+    "Peel and chop potatoes, then boil for <time>30 min</time>",
+    "Crunch nachos and sprinkle on top of the soup.",
+    "Serve with homebaked bread."
+  ],
+  "drink": "Some text about suitable drink choices.",
+  "information": "Extra information can go here if needed",
+  "source": {
+    "name": "Someone's cooking blog",
+    "date": "2022-01-20",
+    "url": "https://somecookingblog.com/link-to-recipe"
+  }
+}

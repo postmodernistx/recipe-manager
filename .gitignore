@@ -3,6 +3,10 @@ dist
 dist-ssr
 *.local
 
+# Ignore all recipes except for sample recipes
+src/data/recipes/**.json
+!src/data/recipes/recipe.example.json
+
 # Junk
 Desktop.ini
 Thumbs.db
