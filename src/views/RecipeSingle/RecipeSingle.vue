@@ -9,7 +9,7 @@
       <h1 class="mt-4 text-3xl font-serif">Jauhelihapasta olutsipulilla</h1>
     </div>
 
-    <div class="text-center max-w-sm mx-auto mt-8 mb-12 font-serif text-sm md:grid md:gap-2 md:grid-cols-4">
+    <div class="text-center max-w-lg mx-auto mt-8 mb-12 font-serif text-sm md:grid md:grid-cols-5 md:justify-between">
       <div class="metadata" title="Portioner">
         <CakeIcon class="h-5 w-5" />
         <span>6</span>
@@ -25,6 +25,11 @@
       <div class="metadata" title="Passiv tid">
         <FastForwardIcon class="h-5 w-5" />
         <span>60 min</span>
+      </div>
+
+      <div class="metadata" title="Betyg">
+        <StarIcon class="h-5 w-5" />
+        <span>3</span>
       </div>
     </div>
 
@@ -108,11 +113,11 @@
 import IngredientItem from './components/IngredientItem.vue';
 import RecipeStep from './components/RecipeStep.vue';
 
-import { CakeIcon, ClockIcon, FastForwardIcon, ChartPieIcon } from '@heroicons/vue/outline';
+import { CakeIcon, ClockIcon, FastForwardIcon, ChartPieIcon, StarIcon } from '@heroicons/vue/outline';
 
 export default {
   name: 'RecipeSingle',
-  components: { RecipeStep, IngredientItem, CakeIcon, ClockIcon, FastForwardIcon, ChartPieIcon },
+  components: { RecipeStep, IngredientItem, CakeIcon, ClockIcon, FastForwardIcon, ChartPieIcon, StarIcon },
 };
 </script>
 
@@ -146,7 +151,7 @@ h3 {
 }
 
 .metadata {
-  @apply flex gap-2 justify-items-center;
+  @apply flex gap-2 justify-center;
 }
 
 .with-bg {
