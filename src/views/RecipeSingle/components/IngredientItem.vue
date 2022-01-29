@@ -1,5 +1,5 @@
 <template>
-  <li @click="toggle" @keydown.enter="toggle">
+  <li @click="toggle" @keydown.enter="toggle" @keydown.space="toggle">
     <span tabindex="0" :class="{ used: toggled }">
       {{ amount }} {{ unit }} {{ name }}
     </span>

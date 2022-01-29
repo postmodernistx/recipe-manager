@@ -1,5 +1,5 @@
 <template>
-  <li @click="toggle" @keydown.enter="toggle">
+  <li @click="toggle" @keydown.enter="toggle" @keydown.space="toggle">
     <span class="text-sm font-bold pr-2 dark:text-neutral-200 print:text-black">{{ stepNumber }}</span>
     <span class="font-serif" tabindex="0" :class="{ used: toggled }" v-html="description"></span>
   </li>
