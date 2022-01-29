@@ -16,15 +16,15 @@
         </div>
         <div class="metadata" title="Total tid">
           <ClockIcon class="h-5 w-5" />
-          <span>{{ recipeData.metadata.totalTimeMinutes }}</span>
+          <span>{{ recipeData.metadata.totalTimeMinutes }} min</span>
         </div>
         <div class="metadata" title="Aktiv tid">
           <ChartPieIcon class="h-5 w-5" />
-          <span>{{ recipeData.metadata.activeTimeMinutes }}</span>
+          <span>{{ recipeData.metadata.activeTimeMinutes }} min</span>
         </div>
         <div class="metadata" title="Passiv tid">
           <FastForwardIcon class="h-5 w-5" />
-          <span>{{ recipeData.metadata.passiveTimeMinutes }}</span>
+          <span>{{ recipeData.metadata.passiveTimeMinutes }} min</span>
         </div>
 
         <div class="metadata" title="Betyg">
@@ -53,16 +53,13 @@
           <div class="mt-12">
             <h3>Näringsvärde</h3>
             <ul>
-              <li>360 kcal totalt</li>
-              <li>145 kcal per portion</li>
+              <li>{{ recipeData.nutritionKcalTotal }} kcal totalt</li>
+              <li>{{ kcalPerServing }} kcal per portion</li>
             </ul>
 
             <h3>Kategorier</h3>
             <ul>
-              <li>Soppor</li>
-              <li>Pasta</li>
-              <li>Öl</li>
-              <li>Med dryckesförslag</li>
+              <li v-for="category in recipeData.categories" :key="category">{{ category }}</li>
             </ul>
           </div>
         </div>
@@ -114,21 +111,65 @@ import RecipeStep from './components/RecipeStep.vue';
 
 import { CakeIcon, ClockIcon, FastForwardIcon, ChartPieIcon, StarIcon } from '@heroicons/vue/outline';
 
+const recipeDataTemplate = {
+  name: '',
+  description: '',
+  metadata: {
+    yields: 0,
+    totalTimeMinutes: 0,
+    activeTimeMinutes: 0,
+    passiveTimeMinutes: 0,
+    rating: 0,
+  },
+  categories: [],
+  nutritionKcalTotal: 0,
+  ingredients: [
+    {
+      groupName: '',
+      components: [
+        {
+          amount: 0,
+          unit: 'g',
+          product: '',
+        },
+      ],
+    },
+  ],
+  steps: [],
+  drink: '',
+  information: '',
+  source: {
+    name: '',
+    date: '',
+    url: '',
+  },
+};
+
 export default {
   name: 'RecipeSingle',
   components: { RecipeStep, IngredientItem, CakeIcon, ClockIcon, FastForwardIcon, ChartPieIcon, StarIcon },
   data() {
     return {
-      recipeData: null,
+      recipeData: {},
     };
   },
+  computed: {
+    kcalPerServing() {
+      if (this.recipeData) {
+        return Math.ceil(this.recipeData.nutritionKcalTotal / this.recipeData.metadata.yields);
+      }
+      return 0;
+    },
+  },
+  created() {
+    this.recipeData = Object.assign(this.recipeData, recipeDataTemplate);
+  },
   mounted() {
-    console.log('mounted');
     this.getRecipeData();
   },
   methods: {
     getRecipeData() {
-      this.recipeData = this.$store.getters.getRecipeById(this.$route.params.name);
+      this.recipeData = Object.assign(this.recipeData, this.$store.getters.getRecipeById(this.$route.params.name));
     },
   },
 };
