@@ -13,3 +13,19 @@ body {
 a {
   @apply text-cyan-800 underline dark:text-emerald-500;
 }
+
+@media print {
+  body {
+    @apply bg-none bg-white text-black;
+  }
+  header {
+    @apply hidden;
+  }
+  a {
+    @apply text-black;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-black;
+  }
+}

@@ -1,6 +1,6 @@
 <template>
   <li @click="toggle" @keydown.enter="toggle">
-    <span class="text-sm font-bold pr-2 dark:text-neutral-200">{{ stepNumber }}</span>
+    <span class="text-sm font-bold pr-2 dark:text-neutral-200 print:text-black">{{ stepNumber }}</span>
     <span class="font-serif" tabindex="0" :class="{ used: toggled }" v-html="description"></span>
   </li>
 </template>
@@ -40,13 +40,13 @@ li {
   @apply cursor-pointer;
 }
 .used {
-  @apply line-through text-slate-400 dark:text-gray-600;
+  @apply line-through text-slate-400 dark:text-gray-600 print:no-underline print:text-black;
 }
 span ::v-deep(time) {
-  @apply font-mono text-emerald-800 text-xs dark:text-emerald-500;
+  @apply font-mono text-emerald-800 text-xs dark:text-emerald-500 print:text-black;
 }
 
 .used ::v-deep(time) {
-  @apply text-slate-400 dark:text-gray-600;
+  @apply text-slate-400 dark:text-gray-600 print:text-black;
 }
 </style>

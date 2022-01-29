@@ -1,15 +1,18 @@
 <template>
-  <section class="px-8 py-8 with-bg">
+  <section class="px-8 py-8 with-bg print:p-2">
     <div v-if="recipeData">
       <div class="font-bold text-center max-w-lg mx-auto mb-8">
-        <span class="border-b-2 border-b-red-600 text-xs text-red-600 uppercase">{{ locale.recipe }}</span>
+        <span class="border-b-2 border-b-red-600 print:border-b-black text-xs text-red-600 print:text-black uppercase">
+          {{ locale.recipe }}
+        </span>
         <div class="font-normal font-serif mt-4 max-w-sm mx-auto">
           {{ recipeData.description }}
         </div>
         <h1 class="mt-4 text-3xl font-serif">{{ recipeData.name }}</h1>
       </div>
 
-      <div class="text-center max-w-lg mx-auto mt-8 mb-12 font-serif text-sm md:grid md:grid-cols-5 md:justify-between">
+      <div class="text-center max-w-lg mx-auto mt-8 mb-12 font-serif text-sm md:grid md:grid-cols-5 md:justify-between
+      print:grid print:justify-between print:grid-cols-5 print:my-2">
         <div class="metadata" :title="locale.recipeData.yields">
           <CakeIcon class="h-5 w-5" />
           <span>{{ recipeData.metadata.yields }}</span>
@@ -34,23 +37,26 @@
       </div>
 
       <section class="six-columns">
-        <div class="mb-8 ingredients">
-          <h2 class="font-bold mb-2 uppercase">{{ locale.recipeData.ingredients }}</h2>
+        <div class="mb-8 ingredients print:grid print:grid-cols-2">
 
-          <template v-for="(ingredientGroup, index) in recipeData.ingredients" :key="`ig-${index}`">
-            <h3 class="font-bold mb-1">{{ ingredientGroup.groupName }}</h3>
-            <ul>
-              <IngredientItem
-                v-for="(item, index2) in ingredientGroup.components"
-                :key="`ig-${index}-component-${index2}`"
-                :amount="item.amount"
-                :unit="item.unit"
-                :name="item.product"
-              />
-            </ul>
-          </template>
+          <div>
+            <h2 class="font-bold mb-2 uppercase">{{ locale.recipeData.ingredients }}</h2>
 
-          <div class="mt-12">
+            <template v-for="(ingredientGroup, index) in recipeData.ingredients" :key="`ig-${index}`">
+              <h3 class="font-bold mb-1">{{ ingredientGroup.groupName }}</h3>
+              <ul>
+                <IngredientItem
+                  v-for="(item, index2) in ingredientGroup.components"
+                  :key="`ig-${index}-component-${index2}`"
+                  :amount="item.amount"
+                  :unit="item.unit"
+                  :name="item.product"
+                />
+              </ul>
+            </template>
+          </div>
+
+          <div class="mt-12 print:mt-0">
             <h3>{{ locale.recipeData.nutritionalValue }}</h3>
             <ul>
               <li>{{ recipeData.nutritionKcalTotal }} kcal {{ locale.total }}</li>
@@ -78,16 +84,22 @@
         </div>
       </section>
 
-      <section class="two-columns">
+      <section class="two-columns print:break-before-page">
         <div class="font-bold my-8">
-          <span class="border-b-2 border-b-red-600 text-xs text-red-600 uppercase">{{ locale.recipeData.drink }}</span>
+          <span
+            class="border-b-2 border-b-red-600 print:border-b-black text-xs text-red-600 print:text-black uppercase"
+          >
+            {{ locale.recipeData.drink }}
+          </span>
           <div class="font-normal mt-4">
             {{ recipeData.drink }}
           </div>
         </div>
 
         <div class="font-bold my-8">
-          <span class="border-b-2 border-b-red-600 text-xs text-red-600 uppercase">
+          <span
+            class="border-b-2 border-b-red-600 print:border-b-black text-xs text-red-600 print:text-black uppercase"
+          >
             {{ locale.recipeData.information }}
           </span>
           <div class="font-normal mt-4">
@@ -96,7 +108,11 @@
         </div>
 
         <div class="font-bold my-8">
-          <span class="border-b-2 border-b-red-600 text-xs text-red-600 uppercase">{{ locale.recipeData.source }}</span>
+          <span
+            class="border-b-2 border-b-red-600 print:border-b-black text-xs text-red-600 print:text-black uppercase"
+          >
+            {{ locale.recipeData.source }}
+          </span>
           <div class="font-normal mt-4">
             <a :href="recipeData.source.url" target="_blank" rel="noopener noreferrer">{{ recipeData.source.name }}</a>
             | {{ recipeData.source.date }}
@@ -201,7 +217,7 @@ export default {
 h1,
 h2,
 h3 {
-  @apply dark:text-slate-200;
+  @apply dark:text-slate-200 print:text-black;
 }
 
 h3 {
@@ -215,6 +231,12 @@ h3 {
 .with-bg {
   min-height: calc(100vh - 56px);
   /* bg from https://heropatterns.com/ */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ff002f' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ff002f' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); /* eslint-disable-line */
+}
+
+@media print {
+  .with-bg {
+    @apply bg-none bg-transparent;
+  }
 }
 </style>

@@ -41,6 +41,6 @@ li {
   @apply cursor-pointer;
 }
 .used {
-  @apply line-through text-slate-400 dark:text-gray-600;
+  @apply line-through text-slate-400 dark:text-gray-600 print:text-black print:no-underline;
 }
 </style>
