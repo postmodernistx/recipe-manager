@@ -54,6 +54,7 @@ The language is then registered and made globally available through `app.config.
 Currently there's 🇺🇸 English, 🇸🇪 Swedish and 🇫🇮 Finnish present.
 
 - [ ] The `<title>` tag needs to be changed manually in `index.html`
+- [ ] The `<html lang="">` [attribute](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) needs to be changed manually in `index.html`
 
 ## Tech notes
 ### Stack
