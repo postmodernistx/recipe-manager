@@ -25,6 +25,11 @@ const recipeStore = {
     markAllRecipesLoaded(state, payload) {
       state.recipesLoaded = payload;
     },
+    sortRecipesAlphabetically(state) {
+      state.recipes = state.recipes.sort((a, b) => {
+        return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+      });
+    },
     extractCategories(state) {
       let extractedCategories = state.recipes.map(recipe => recipe.categories);
       extractedCategories = Array.from(extractedCategories.flat());
@@ -32,12 +37,13 @@ const recipeStore = {
     },
   },
   actions: {
-    addRecipe({ state, commit, rootState }, payload) {
+    addRecipe({ commit }, payload) {
       commit('saveRecipe', payload);
     },
     setRecipesLoaded({ state, commit }, payload) {
       commit('markAllRecipesLoaded', payload);
       if (payload === true) {
+        commit('sortRecipesAlphabetically');
         commit('extractCategories');
       }
     },
