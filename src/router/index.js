@@ -8,6 +8,11 @@ const routes = [
     name: 'ViewHome',
     component: ViewHome,
   },
+  {
+    path: '/recipe/:name',
+    name: 'RecipeSingle',
+    component: () => import(/* webpackChunkName: "recipeSingle" */ '../views/RecipeSingle/RecipeSingle.vue'),
+  },
   // {
   //   path: '/:pathMatch(.*)*',
   //   name: 'Error404',

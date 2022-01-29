@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light dark;
+}
+
 body {
-  @apply break-words;
+  @apply break-words bg-slate-50 dark:bg-slate-900 dark:text-slate-400;
+}
+
+a {
+  @apply text-cyan-800 underline dark:text-emerald-500;
 }
