@@ -4,7 +4,7 @@
   "license": "GPL-3.0-or-later",
   "scripts": {
     "build": "vite build",
-    "build-github": "vite build --config vite.config.github.js",
+    "build-github": "vite build --mode github --config vite.config.github.js",
     "dev": "vite",
     "preview": "vite preview"
   },

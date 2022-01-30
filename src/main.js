@@ -27,7 +27,14 @@ app.mount('#app');
 // ------------------------------------------------------------
 // ------------------------------ 🥙 IMPORT RECIPES -----------
 // ------------------------------------------------------------
-const recipes = import.meta.glob('./data/recipes/*.json');
+let recipes;
+
+if (import.meta.env.MODE === 'github') {
+  recipes = import.meta.glob('./data/recipes/*.example.json');
+} else {
+  recipies = import.meta.glob('./data/recipes/*.json');
+}
+
 const numberOfRecipes = Object.keys(recipes).length;
 
 const waitForRecipesToLoad = watch(
