@@ -1,6 +1,8 @@
 # 🥐 Recipe Manager
 Very basic recipe manager, built with Vue 3, Vite and Tailwind (and Vue Router + Vuex).
 
+[Demo](https://postmodernistx.github.io/recipe-manager/)
+
 I wanted to keep the project as light-weight as possible, yet flexible enough to be extended if need be. I also wanted to keep it "database free", so deployment would be a straight-forward procedure.
 
 Recipes are stored as JSON files in `src/data/recipes`.
@@ -24,7 +26,6 @@ There's a dark & light theme implemented.
 - [ ] [Add metadata to index.html](https://github.com/postmodernistx/recipe-manager/issues/21)
 - [ ] [Route transitions](https://github.com/postmodernistx/recipe-manager/issues/20)
 - [ ] [Improve documentation](https://github.com/postmodernistx/recipe-manager/issues/19)
-- [ ] [Better front page styling](https://github.com/postmodernistx/recipe-manager/issues/18)
 - [ ] [Timer from <time> tag](https://github.com/postmodernistx/recipe-manager/issues/6)
 - [ ] [Focus styles/keyboard navigation](https://github.com/postmodernistx/recipe-manager/issues/5)
 - [ ] [Scale recipe ingredients](https://github.com/postmodernistx/recipe-manager/issues/4)
@@ -53,7 +54,7 @@ The language is then registered and made globally available through `app.config.
 
 Currently there's 🇺🇸 English, 🇸🇪 Swedish and 🇫🇮 Finnish present.
 
-- [ ] The `<title>` tag needs to be changed manually in `index.html`
+- [ ] The `<title>` tag needs to be changed manually in `index.html`, or from the `.env` file (Vite is adding citation marks)
 - [ ] The `<html lang="">` [attribute](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) needs to be changed manually in `index.html`
 
 ## Tech notes
