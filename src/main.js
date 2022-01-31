@@ -43,7 +43,7 @@ const waitForRecipesToLoad = watch(
     if (numberOfRecipes === newVal) {
       console.timeEnd('Loaded recipes in');
       console.log('Database contains', numberOfRecipes, 'recipes');
-      store.dispatch('setRecipesLoaded', true);
+      store.dispatch('setAreRecipesLoaded', true);
       waitForRecipesToLoad();
     }
   }

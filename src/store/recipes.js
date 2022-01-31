@@ -1,15 +1,21 @@
 const recipeStore = {
+  /**
+   * This is the module's state.
+   */
   state: () => ({
-    recipesLoaded: false,
+    areRecipesLoaded: false,
     recipes: [],
     categories: [],
   }),
+  /**
+   * Getters are, well, getting state.
+   */
   getters: {
     allRecipes(state) {
       return state.recipes;
     },
-    allRecipesLoaded(state) {
-      return state.recipesLoaded;
+    areAllRecipesLoaded(state) {
+      return state.areRecipesLoaded;
     },
     allCategories(state) {
       return state.categories;
@@ -18,12 +24,15 @@ const recipeStore = {
       return state.recipes.filter(recipe => recipe.id === recipeId)[0];
     },
   },
+  /**
+   * State mutations are triggered by actions.
+   */
   mutations: {
     saveRecipe(state, payload) {
       state.recipes.push(payload);
     },
     markAllRecipesLoaded(state, payload) {
-      state.recipesLoaded = payload;
+      state.areRecipesLoaded = payload;
     },
     sortRecipesAlphabetically(state) {
       state.recipes = state.recipes.sort((a, b) => {
@@ -36,11 +45,14 @@ const recipeStore = {
       state.categories = [...new Set(extractedCategories)].sort();
     },
   },
+  /**
+   * Actions are dispatched in order to mutate state.
+   */
   actions: {
     addRecipe({ commit }, payload) {
       commit('saveRecipe', payload);
     },
-    setRecipesLoaded({ state, commit }, payload) {
+    setAreRecipesLoaded({ state, commit }, payload) {
       commit('markAllRecipesLoaded', payload);
       if (payload === true) {
         commit('sortRecipesAlphabetically');

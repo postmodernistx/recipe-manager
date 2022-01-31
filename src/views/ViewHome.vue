@@ -2,7 +2,7 @@
   <div>
     <h1 class="text-2xl font-bold my-4 text-center">{{ locale.app_title }}</h1>
 
-    <div v-if="!$store.getters.allRecipesLoaded">
+    <div v-if="!$store.getters.areAllRecipesLoaded">
       {{ locale.loading }}
     </div>
 
@@ -34,9 +34,9 @@ export default {
     };
   },
   mounted() {
-    if (!this.$store.getters.allRecipesLoaded) {
+    if (!this.$store.getters.areAllRecipesLoaded) {
       this.$store.subscribeAction(action => {
-        if (action.type === 'setRecipesLoaded') {
+        if (action.type === 'setAreRecipesLoaded') {
           this.$nextTick(() => {
             this.recipeList = this.$store.getters.allRecipes;
             this.filterRecipeList();
