@@ -21,20 +21,20 @@ There's a dark & light theme implemented.
 - [x] Basic internationalization
 - [x] Basic recipe metadata (rating, category, cooking time, yield, nutrition)
 - [x] [Add print stylesheets](https://github.com/postmodernistx/recipe-manager/issues/22)
+- [x] [Route transitions](https://github.com/postmodernistx/recipe-manager/issues/20)
 
 ### To Do
 - [ ] [Add metadata to index.html](https://github.com/postmodernistx/recipe-manager/issues/21)
-- [ ] [Route transitions](https://github.com/postmodernistx/recipe-manager/issues/20)
 - [ ] [Improve documentation](https://github.com/postmodernistx/recipe-manager/issues/19)
 - [ ] [Timer from <time> tag](https://github.com/postmodernistx/recipe-manager/issues/6)
 - [ ] [Focus styles/keyboard navigation](https://github.com/postmodernistx/recipe-manager/issues/5)
 - [ ] [Scale recipe ingredients](https://github.com/postmodernistx/recipe-manager/issues/4)
 - [ ] [Links list to recipe sites (favorites)](https://github.com/postmodernistx/recipe-manager/issues/9)
 - [ ] [Nutrition information based on database/ingredients](https://github.com/postmodernistx/recipe-manager/issues/1)
-- [ ] [Difficulty property](https://github.com/postmodernistx/recipe-manager/issues/11)
 - [ ] [Generate grocery list/meal planner](https://github.com/postmodernistx/recipe-manager/issues/12)
 - [ ] [Add recipe UI](https://github.com/postmodernistx/recipe-manager/issues/24)
 - [ ] [Search functionality](https://github.com/postmodernistx/recipe-manager/issues/25)
+- [ ] [Difficulty property](https://github.com/postmodernistx/recipe-manager/issues/11)
 
 ## Deployment
 Build the project through the `build` script in `package.json`. The current settings are set to up to run the project from a root directory (like a subdomain), but this can be configured through `vite.config.js` and by setting the [base path](https://vitejs.dev/guide/build.html#public-base-path).
