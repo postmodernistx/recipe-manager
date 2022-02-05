@@ -15,15 +15,31 @@
       </section>
 
       <ul class="max-w-lg mx-auto">
-        <li v-for="recipe in filteredRecipes" :key="recipe.id" class="mb-4">
-          <router-link :to="{ name: 'RecipeSingle', params: { name: recipe.id } }">{{ recipe.name }}</router-link>
-        </li>
+        <transition-group
+          mode="in-out"
+          :css="false"
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @enter-cancelled="enterCancelled"
+          @leave="leave"
+          @leave-cancelled="leaveCancelled"
+        >
+          <li
+            v-for="recipe in filteredRecipes"
+            :key="recipe.id"
+            class="mb-4 overflow-hidden"
+          >
+            <router-link :to="{ name: 'RecipeSingle', params: { name: recipe.id } }">{{ recipe.name }}</router-link>
+          </li>
+        </transition-group>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import { gsap } from 'gsap';
+
 export default {
   name: 'ViewHome',
   data() {
@@ -49,6 +65,28 @@ export default {
     }
   },
   methods: {
+    // ----------------------------------------------------------------------
+    // ----------------------------------- 💫 ANIMATIONS --------------------
+    // ----------------------------------------------------------------------
+    // TODO: Needs work
+    beforeEnter(el) {
+      gsap.set(el, { opacity: 0, y: '-30px', duration: 0.3 });
+    },
+    enter(el, done) {
+      gsap.to(el, { opacity: 1, y: 0, onComplete: done });
+    },
+    enterCancelled(el) {
+      gsap.set(el, { opacity: 0 });
+    },
+    leave(el, done) {
+      gsap.to(el, { opacity: 0, y: '30px', duration: 0.3, onComplete: done });
+    },
+    leaveCancelled(el) {
+      gsap.set(el, { opacity: 1, y: 0 });
+    },
+    // ----------------------------------------------------------------------
+    // ----------------------------------- HELPER METHODS -------------------
+    // ----------------------------------------------------------------------
     filterRecipeList() {
       if (this.recipeFilter === this.locale.all_categories) {
         this.filteredRecipes = this.recipeList;

@@ -37,11 +37,11 @@ export default {
     enterCancelled(el) {
       gsap.to(el, { opacity: 0 });
     },
-    enter(el) {
-      gsap.to(el, { opacity: 1 });
+    enter(el, done) {
+      gsap.to(el, { opacity: 1, duration: 0.2, onComplete: done });
     },
-    leave(el) {
-      gsap.to(el, { opacity: 0 });
+    leave(el, done) {
+      gsap.to(el, { opacity: 0, duration: 0.2, onComplete: done });
     },
     leaveCancelled(el) {
       gsap.to(el, { opacity: 1 });
