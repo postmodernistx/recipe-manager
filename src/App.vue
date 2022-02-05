@@ -5,24 +5,26 @@ import PageHeader from './components/fixtures/PageHeader.vue';
 </script>
 
 <template>
-  <PageHeader />
-  <section class="router-view">
-    <router-view v-slot="{ Component }">
-      <transition
-        :css="false"
-        mode="out-in"
-        @before-enter="beforeEnter"
-        @enter="enter"
-        @enter-cancelled="enterCancelled"
-        @leave="leave"
-        @leave-cancelled="leaveCancelled"
-      >
-        <keep-alive>
-          <component :is="Component" />
-        </keep-alive>
-      </transition>
-    </router-view>
-  </section>
+  <main>
+    <PageHeader />
+    <section class="router-view">
+      <router-view v-slot="{ Component }">
+        <transition
+          :css="false"
+          mode="out-in"
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @enter-cancelled="enterCancelled"
+          @leave="leave"
+          @leave-cancelled="leaveCancelled"
+        >
+          <keep-alive>
+            <component :is="Component" />
+          </keep-alive>
+        </transition>
+      </router-view>
+    </section>
+  </main>
 </template>
 
 <script>

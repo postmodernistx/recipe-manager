@@ -46,7 +46,16 @@ span ::v-deep(time) {
   @apply font-mono text-emerald-800 text-xs dark:text-emerald-500 print:text-black;
 }
 
-.used ::v-deep(time) {
+span ::v-deep(dfn) {
+  @apply not-italic text-amber-800 print:text-black;
+}
+
+span ::v-deep(var) {
+  @apply not-italic font-mono text-xs;
+}
+
+.used ::v-deep(time),
+.used ::v-deep(dfn) {
   @apply text-slate-400 dark:text-gray-600 print:text-black;
 }
 </style>

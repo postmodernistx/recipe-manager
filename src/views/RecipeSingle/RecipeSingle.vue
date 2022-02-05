@@ -92,7 +92,7 @@
       </section>
 
       <section class="two-columns print:break-before-page">
-        <div class="font-bold my-8">
+        <div v-if="recipeData.drink" class="font-bold my-8">
           <span
             class="border-b-2 border-b-red-600 print:border-b-black text-xs text-red-600 print:text-black uppercase"
           >
@@ -103,7 +103,7 @@
           </div>
         </div>
 
-        <div class="font-bold my-8">
+        <div v-if="recipeData.information" class="font-bold my-8">
           <span
             class="border-b-2 border-b-red-600 print:border-b-black text-xs text-red-600 print:text-black uppercase"
           >

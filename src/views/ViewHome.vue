@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="max-w-[90%] mx-auto">
     <h1 class="text-2xl font-bold my-4 text-center">{{ locale.app_title }}</h1>
 
     <div v-if="!$store.getters.areAllRecipesLoaded">
