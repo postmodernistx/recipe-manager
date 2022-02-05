@@ -1,0 +1,151 @@
+{
+  "name": "Slutty Brownies",
+  "description": "Layers of cookie dough, Oreo’s and homemade brownie batter; it's perfection!",
+  "metadata": {
+    "yields": 16,
+    "totalTimeMinutes": 50,
+    "activeTimeMinutes": 10,
+    "passiveTimeMinutes": 40,
+    "rating": 5
+  },
+  "categories": [
+    "Baking",
+    "Dessert"
+  ],
+  "nutritionKcalTotal": 0,
+  "ingredients": [
+    {
+      "groupName": "Brownie layer",
+      "components": [
+        {
+          "amount": 10,
+          "unit": "tbsp",
+          "product": "unsalted butter"
+        },
+        {
+          "amount": 1.25,
+          "unit": "cups",
+          "product": "white sugar"
+        },
+        {
+          "amount": 0.75,
+          "unit": "cups",
+          "product": "cocoa powder"
+        },
+        {
+          "amount": 0.5,
+          "unit": "tsp",
+          "product": "kosher salt"
+        },
+        {
+          "amount": 2,
+          "unit": "tsp",
+          "product": "vanilla extract"
+        },
+        {
+          "amount": 2,
+          "unit": "large",
+          "product": "eggs"
+        },
+        {
+          "amount": 0.5,
+          "unit": "cups",
+          "product": "flour"
+        }
+      ]
+    },
+    {
+      "groupName": "Oreo layer",
+      "components": [
+        {
+          "amount": 1,
+          "unit": "package",
+          "product": "Oreo cookies"
+        }
+      ]
+    },
+    {
+      "groupName": "Cookie Dough layer",
+      "components": [
+        {
+          "amount": 0.5,
+          "unit": "cups",
+          "product": "unsalted butter at room temp"
+        },
+        {
+          "amount": 0.25,
+          "unit": "cups",
+          "product": "brown sugar"
+        },
+        {
+          "amount": 0.75,
+          "unit": "cups",
+          "product": "white sugar"
+        },
+        {
+          "amount": 1,
+          "unit": "normal",
+          "product": "egg"
+        },
+        {
+          "amount": 1.25,
+          "unit": "tsp",
+          "product": "vanilla extract"
+        },
+        {
+          "amount": 1.25,
+          "unit": "cups",
+          "product": "flour"
+        },
+        {
+          "amount": 0.5,
+          "unit": "tsp",
+          "product": "salt"
+        },
+        {
+          "amount": 0.5,
+          "unit": "tsp",
+          "product": "baking soda"
+        },
+        {
+          "amount": 0.5,
+          "unit": "tsp",
+          "product": "baking powder"
+        },
+        {
+          "amount": 1,
+          "unit": "cup",
+          "product": "semi-sweet chocolate chips"
+        }
+      ]
+    }
+  ],
+  "steps": [
+    "Pre-heat the oven to 350 degrees F.",
+    "<dfn>Brownie layer:</dfn>",
+    "In a medium sauce pan, melt the butter over medium high heat.",
+    "Add the <var>sugar</var> and <var>cocoa powder</var> once the butter is melted. Whisk to combine and remove from heat.",
+    "Add the <var>salt</var>, <var>vanilla</var> and <var>eggs</var> and continuously whisk until the eggs are combined.",
+    "Add the flour and continue to mix. Set batter aside.",
+    "<dfn>Cookie Dough layer:</dfn>",
+    "Cream together the butter and sugars in a mixer.",
+    "Add the egg and vanilla, making sure to scrape down the sides of the mixing bowl.",
+    "Add the flour, salt, baking soda and baking powder and mix on low until everything is incorporated.",
+    "Fold in the chocolate chips. Set dough aside.",
+    "<dfn>Assembly:</dfn>",
+    "Line the bottom of a 9x9 baking pan with tin foil and then spray the tin foil with a layer of baking spray.",
+    "Layer the cookie dough on the bottom of a 9x9 baking pan, pressing down to form the bottom of the slutty brownies.",
+    "Layer as many Oreos that will fit on top of the cookie dough. No need to overlap. One single layer will do.",
+    "Pour the brownie batter on top of the Oreo layer and make sure it's evenly layers on top.",
+    "Bake for <time>30-40 minutes</time>.",
+    "Test with a knife to see if the center is done. If the knife comes out clean, let the brownies rest for at least 2 hours before serving. If the knife comes out with batter still on it, allow the brownies to bake about <time>5 minutes</time> more.",
+    "Slice and serve."
+  ],
+  "drink": "",
+  "information": "",
+  "source": {
+    "name": "What's Gaby Cooking",
+    "date": "2022-02-05",
+    "url": "https://whatsgabycooking.com/slutty-brownies/"
+  }
+}

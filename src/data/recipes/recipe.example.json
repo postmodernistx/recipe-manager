@@ -1,61 +1,69 @@
 {
-  "name": "Cotton candy cake",
-  "description": "A fluffy, pink sugar dream cake. Goes well for birthdays and where clowns are.",
+  "name": "Melanzane alla parmigiana",
+  "description": "The ultimate comfort food recipe.",
   "metadata": {
     "yields": 6,
-    "totalTimeMinutes": 90,
-    "activeTimeMinutes": 30,
-    "passiveTimeMinutes": 60,
-    "rating": 3
+    "totalTimeMinutes": 100,
+    "activeTimeMinutes": 35,
+    "passiveTimeMinutes": 65,
+    "rating": 5
   },
   "categories": [
-    "Cakes",
-    "Birthday",
-    "With drink suggestion"
+    "Italian",
+    "With drink suggestion",
+    "Vegetarian"
   ],
-  "nutritionKcalTotal": 360,
+  "nutritionKcalTotal": 0,
   "ingredients": [
     {
-      "groupName": "Base",
+      "groupName": "",
       "components": [
         {
-          "amount": 1000,
-          "unit": "g",
-          "product": "cotton candy"
+          "amount": 2,
+          "unit": "big",
+          "product": "aubergines"
         },
         {
-          "amount": 300,
-          "unit": "g",
-          "product": "flour"
-        },
-        {
-          "amount": 0.5,
+          "amount": 1.5,
           "unit": "tbsp",
           "product": "salt"
-        }
-      ]
-    },
-    {
-      "groupName": "Topping",
-      "components": [
+        },
         {
-          "amount": 20,
-          "unit": "g",
-          "product": "nachos"
-        }
+          "amount": 4,
+          "unit": "pcs",
+          "product": "garlic"
+        },
+        { "amount": 4, "unit": "tbsp", "product": "extra virgin olive oil" },
+        { "amount": 1000, "unit": "g", "product": "crushed tomatoes" },
+        { "amount": 1, "unit": "dl", "product": "white wine" },
+        { "amount": 0, "unit": "", "product": "salt" },
+        { "amount": 0, "unit": "", "product": "freshly ground black pepper" },
+        { "amount": 1, "unit": "pot", "product": "basil" },
+        { "amount": 250, "unit": "g", "product": "mozzarella, sliced" },
+        { "amount": 2, "unit": "dl", "product": "parmigiano reggiano, coarsely grated" },
+        { "amount": 4, "unit": "tbsp", "product": "extra virgin olive oil" }
       ]
     }
   ],
   "steps": [
-    "Halvah tootsie roll marzipan marshmallow lemon drops shortbread danish jelly for <time>30 min</time>.",
-    "Biscuit tiramisu bonbon sweet roll jelly fruitcake carrot cake pudding.",
-    "Candy bonbon candy canes icing muffin bonbon."
+    "Slice aubergines in 0.5 cm thick slices.",
+    "Put them in a bowl, alternating layers with salt. Let rest for <time>45 minutes</time>.",
+    "Prepare the tomato sauce: chop the garlic, fry it in olive oil for <time>2 minutes</time>.",
+    "Add <var>tomatoes</var>, <var>white wine</var>. Let simmer for <time>15 minutes</time>. Add salt and pepper to taste.",
+    "Chop the basil and add to the sauce.",
+    "Heat the oven to 200° C.",
+    "Dry the aubergine slices and add them on a baking tray.",
+    "Fry the aubergines in the oven for <time>15 minutes</time>.",
+    "Turn up the oven heat to 225° C.",
+    "Add olive oil to an oven-safe baking pan.",
+    "Alternate layers of aubergine, tomato sauce, mozzarella and some parmesan.",
+    "Top it off with sauce and parmesan. Bake in the oven for <time>15-20 minutes</time>."
   ],
-  "drink": "Pairs well with fruit juice.",
-  "information": "Served at Kim's birthday party, was a success.",
+  "drink": "Bold, red wine, preferably of Sicilian grape Nero d'Avola. Its dark berry and light herb taste append to the spice palette of the melanzane.",
+  "information": "",
   "source": {
-    "name": "Someone's cooking blog",
-    "date": "2022-01-20",
-    "url": "https://somecookingblog.com/link-to-recipe"
+    "name": "Zeta",
+    "date": "2022-02-05",
+    "url": "https://www.zeta.nu/recept/melanzane-alla-parmigiana/"
   }
 }
