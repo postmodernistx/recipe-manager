@@ -1,6 +1,6 @@
 <template>
   <section class="px-8 py-8 with-bg print:p-2">
-    <div v-if="recipeData">
+    <div v-if="recipeData && !falsePath">
       <div class="font-bold text-center max-w-lg mx-auto mb-8">
         <span class="border-b-2 border-b-red-600 print:border-b-black text-xs text-red-600 print:text-black uppercase">
           {{ locale.recipe }}
@@ -42,7 +42,10 @@
           <div>
             <h2 class="font-bold mb-2 uppercase">{{ locale.recipeData.ingredients }}</h2>
 
-            <template v-for="(ingredientGroup, index) in recipeData.ingredients" :key="`ig-${recipeData.id}-${index}`">
+            <template
+              v-for="(ingredientGroup, index) in processedRecipeData.ingredients"
+              :key="`ig-${processedRecipeData.id}-${index}`"
+            >
               <h3 class="font-bold mb-1">{{ ingredientGroup.groupName }}</h3>
               <ul>
                 <IngredientItem
@@ -56,10 +59,14 @@
             </template>
           </div>
 
+          <div class="mt-12" :title="locale.scale_recipe">
+            <NumericStepper v-if="!falsePath" :initial-value="yields" @value-changed="scaleRecipe" />
+          </div>
+
           <div class="mt-12 print:mt-0">
             <h3>{{ locale.recipeData.nutritionalValue }}</h3>
             <ul>
-              <li>{{ recipeData.nutritionKcalTotal }} kcal {{ locale.total }}</li>
+              <li>{{ processedRecipeData.nutritionKcalTotal }} kcal {{ locale.total }}</li>
               <li>{{ kcalPerServing }} kcal {{ locale.per_serving }}</li>
             </ul>
 
@@ -120,12 +127,16 @@
         </div>
       </section>
     </div>
+    <div v-if="falsePath">
+      <h1 class="mt-4 text-3xl font-serif">{{ locale.recipe_not_found }}</h1>
+    </div>
   </section>
 </template>
 
 <script>
 import IngredientItem from './components/IngredientItem.vue';
 import RecipeStep from './components/RecipeStep.vue';
+import NumericStepper from './components/NumericStepper.vue';
 
 import { CakeIcon, ClockIcon, FastForwardIcon, ChartPieIcon, StarIcon } from '@heroicons/vue/outline';
 
@@ -165,18 +176,42 @@ const recipeDataTemplate = {
 
 export default {
   name: 'RecipeSingle',
-  components: { RecipeStep, IngredientItem, CakeIcon, ClockIcon, FastForwardIcon, ChartPieIcon, StarIcon },
+  components: {
+    NumericStepper,
+    RecipeStep,
+    IngredientItem,
+    CakeIcon,
+    ClockIcon,
+    FastForwardIcon,
+    ChartPieIcon,
+    StarIcon,
+  },
   data() {
     return {
       recipeData: {},
+      scaledRecipeData: {},
+      falsePath: true,
+      yields: 0,
+      recipeIsScaled: false,
+      scaleFactor: 1,
     };
   },
   computed: {
     kcalPerServing() {
       if (this.recipeData) {
-        return Math.ceil(this.recipeData.nutritionKcalTotal / this.recipeData.metadata.yields);
+        return Math.ceil(
+          this.processedRecipeData.nutritionKcalTotal / (this.recipeData.metadata.yields * this.scaleFactor)
+        );
       }
       return 0;
+    },
+    /**
+     * Return different objects based on if the recipe is scaled, or not.
+     * Although, not sure exactly why I cannot just return the basic recipe setup… *facepalm*
+     * @returns {*}
+     */
+    processedRecipeData() {
+      return this.recipeIsScaled ? this.scaledRecipeData : this.recipeData;
     },
   },
   created() {
@@ -194,6 +229,38 @@ export default {
   methods: {
     getRecipeData() {
       this.recipeData = Object.assign(this.recipeData, this.$store.getters.getRecipeById(this.$route.params.name));
+      this.falsePath = this.recipeData.name === '';
+
+      if (!this.falsePath) {
+        this.yields = Number(this.recipeData.metadata.yields);
+      }
+    },
+    roundToDecimals(value, decimals) {
+      const multiple = Math.pow(10, decimals);
+      return Math.round(value * multiple) / multiple;
+    },
+    scaleRecipe(newValue) {
+      this.recipeIsScaled = newValue !== this.recipeData.metadata.yields;
+
+      if (this.recipeIsScaled) {
+        this.scaleFactor = newValue / this.recipeData.metadata.yields;
+
+        // Copy object
+        this.scaledRecipeData = JSON.parse(JSON.stringify(this.recipeData));
+
+        this.scaledRecipeData.nutritionKcalTotal *= this.scaleFactor;
+
+        this.scaledRecipeData.ingredients.forEach(group => {
+          group.components.forEach(ingredient => {
+            ingredient.amount = this.roundToDecimals(this.scaleFactor * ingredient.amount, 2);
+          });
+        });
+
+        // console.table(this.scaledRecipeData.ingredients[0].components);
+      } else {
+        this.scaledRecipeData = {};
+        this.scaleFactor = 1;
+      }
     },
   },
 };

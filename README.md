@@ -22,13 +22,13 @@ There's a dark & light theme implemented.
 - [x] Basic recipe metadata (rating, category, cooking time, yield, nutrition)
 - [x] [Add print stylesheets](https://github.com/postmodernistx/recipe-manager/issues/22)
 - [x] [Route transitions](https://github.com/postmodernistx/recipe-manager/issues/20)
+- [x] [Scale recipe ingredients](https://github.com/postmodernistx/recipe-manager/issues/4)
 
 ### To Do
 - [ ] [Add metadata to index.html](https://github.com/postmodernistx/recipe-manager/issues/21)
 - [ ] [Improve documentation](https://github.com/postmodernistx/recipe-manager/issues/19)
 - [ ] [Timer from <time> tag](https://github.com/postmodernistx/recipe-manager/issues/6)
 - [ ] [Focus styles/keyboard navigation](https://github.com/postmodernistx/recipe-manager/issues/5)
-- [ ] [Scale recipe ingredients](https://github.com/postmodernistx/recipe-manager/issues/4)
 - [ ] [Links list to recipe sites (favorites)](https://github.com/postmodernistx/recipe-manager/issues/9)
 - [ ] [Nutrition information based on database/ingredients](https://github.com/postmodernistx/recipe-manager/issues/1)
 - [ ] [Generate grocery list/meal planner](https://github.com/postmodernistx/recipe-manager/issues/12)

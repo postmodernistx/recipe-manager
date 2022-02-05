@@ -19,5 +19,7 @@
     "drink": "Pairs with",
     "information": "Information",
     "source": "Source"
-  }
+  },
+  "recipe_not_found": "No such recipe!",
+  "scale_recipe": "Scale recipe"
 }
