@@ -19,5 +19,6 @@
     "drink": "Dryck",
     "information": "Information",
     "source": "Källa"
-  }
+  },
+  "recipe_not_found": "Inget sådant recept fanns!"
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-between max-w-[200px]">
     <button class="w-[50px] h-[35px] font-bold text-lg" @click="decreaseValue">-</button>
-    <input v-model="inputValue" type="number" class="w-[65px] text-center p-1" />
+    <input v-model="inputValue" min="1" type="number" class="w-[65px] text-center p-1" @change="updateValue" />
     <button class="w-[50px] h-[35px] font-bold text-lg" @click="increaseValue">+</button>
   </div>
 </template>
@@ -33,11 +33,20 @@ export default {
     decreaseValue() {
       if (this.inputValue - 1 > 0) {
         this.inputValue -= 1;
-        this.$emit('valueChanged', this.inputValue);
+        this.$nextTick(this.acknowledgeValueChange);
       }
     },
     increaseValue() {
       this.inputValue += 1;
+      this.$nextTick(this.acknowledgeValueChange);
+    },
+    updateValue() {
+      if (this.inputValue < 1) {
+        this.inputValue = 1;
+      }
+      this.$nextTick(this.acknowledgeValueChange);
+    },
+    acknowledgeValueChange() {
       this.$emit('valueChanged', this.inputValue);
     },
   },
