@@ -39,7 +39,7 @@ const numberOfRecipes = Object.keys(recipes).length;
 
 const waitForRecipesToLoad = watch(
   () => store.getters.allRecipes.length,
-  (newVal) => {
+  newVal => {
     if (numberOfRecipes === newVal) {
       console.timeEnd('Loaded recipes in');
       console.log('Database contains', numberOfRecipes, 'recipes');
