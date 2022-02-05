@@ -1,10 +1,22 @@
 <template>
   <div class="flex items-center justify-between max-w-[200px]">
-    <button class="w-[50px] h-[35px] font-bold text-lg" @click="decreaseValue">-</button>
-    <input v-model="inputValue" min="1" type="number" class="w-[65px] text-center p-1" @change="updateValue" />
-    <button class="w-[50px] h-[35px] font-bold text-lg" @click="increaseValue">+</button>
+    <button @click="decreaseValue">-</button>
+    <input v-model="inputValue" min="1" type="number" @change="updateValue" />
+    <button @click="increaseValue">+</button>
   </div>
 </template>
+
+<style scoped>
+button, input {
+  @apply border-solid border-2 dark:border-slate-800;
+}
+button {
+  @apply w-[50px] h-[35px] font-bold text-lg;
+}
+input {
+  @apply w-[65px] text-center p-1 bg-transparent;
+}
+</style>
 
 <script>
 export default {

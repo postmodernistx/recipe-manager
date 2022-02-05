@@ -42,8 +42,6 @@
           <div>
             <h2 class="font-bold mb-2 uppercase">{{ locale.recipeData.ingredients }}</h2>
 
-            <NumericStepper v-if="!falsePath" :initial-value="yields" @value-changed="scaleRecipe" />
-
             <template
               v-for="(ingredientGroup, index) in processedRecipeData.ingredients"
               :key="`ig-${processedRecipeData.id}-${index}`"
@@ -59,6 +57,10 @@
                 />
               </ul>
             </template>
+          </div>
+
+          <div class="mt-12" :title="locale.scale_recipe">
+            <NumericStepper v-if="!falsePath" :initial-value="yields" @value-changed="scaleRecipe" />
           </div>
 
           <div class="mt-12 print:mt-0">

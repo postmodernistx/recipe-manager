@@ -20,5 +20,6 @@
     "information": "Lisätiedot",
     "source": "Lähde"
   },
-  "recipe_not_found": "Reseptiä ei löytynyt."
+  "recipe_not_found": "Reseptiä ei löytynyt.",
+  "scale_recipe": "Muuta reseptin annosmäärää"
 }

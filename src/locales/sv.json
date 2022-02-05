@@ -20,5 +20,6 @@
     "information": "Information",
     "source": "Källa"
   },
-  "recipe_not_found": "Inget sådant recept fanns!"
+  "recipe_not_found": "Inget sådant recept fanns!",
+  "scale_recipe": "Skala upp/ner receptet"
 }
