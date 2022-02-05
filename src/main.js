@@ -32,7 +32,7 @@ let recipes;
 if (import.meta.env.MODE === 'github') {
   recipes = import.meta.glob('./data/recipes/*.example.json');
 } else {
-  recipies = import.meta.glob('./data/recipes/*.json');
+  recipes = import.meta.glob('./data/recipes/*.json');
 }
 
 const numberOfRecipes = Object.keys(recipes).length;
