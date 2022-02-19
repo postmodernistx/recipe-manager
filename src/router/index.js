@@ -11,7 +11,12 @@ const routes = [
   {
     path: '/recipe/:name',
     name: 'RecipeSingle',
-    component: () => import(/* webpackChunkName: "recipeSingle" */ '../views/RecipeSingle/RecipeSingle.vue'),
+    component: () => import('../views/RecipeSingle/RecipeSingle.vue'),
+  },
+  {
+    path: '/new-recipe',
+    name: 'NewRecipe',
+    component: () => import('../views/NewRecipe/NewRecipe.vue'),
   },
   // {
   //   path: '/:pathMatch(.*)*',

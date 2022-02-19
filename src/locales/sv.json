@@ -1,6 +1,9 @@
 {
   "home": "Hem",
   "app_title": "Receptdatabas",
+  "new_recipe": "Lägg till nytt recept",
+  "save_recipe": "Ladda ner receptet i JSON-format",
+  "add_new_category": "Lägg till ny kategori",
   "loading": "Laddar",
   "all_categories": "Alla kategorier",
   "recipe": "Recept",
@@ -21,5 +24,13 @@
     "source": "Källa"
   },
   "recipe_not_found": "Inget sådant recept fanns!",
-  "scale_recipe": "Skala upp/ner receptet"
+  "scale_recipe": "Skala upp/ner receptet",
+  "placeholders": {
+    "pairs_with": "Serveringsförslag",
+    "additional_info": "Ytterligare info",
+    "add_recipe_group": "Lägg till gruppering"
+  },
+  "ux": {
+    "enter_to_add_recipe_step": "Lägg till steg genom att trycka enter medan du redigerar ett instruktionssteg"
+  }
 }
