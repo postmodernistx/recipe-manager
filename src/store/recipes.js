@@ -44,6 +44,12 @@ const recipeStore = {
       extractedCategories = Array.from(extractedCategories.flat());
       state.categories = [...new Set(extractedCategories)].sort();
     },
+    addSingleCategory(state, payload) {
+      if (state.categories.indexOf(payload) === -1) {
+        state.categories.push(payload);
+        state.categories.sort();
+      }
+    },
   },
   /**
    * Actions are dispatched in order to mutate state.
@@ -58,6 +64,9 @@ const recipeStore = {
         commit('sortRecipesAlphabetically');
         commit('extractCategories');
       }
+    },
+    addCategory({ commit }, payload) {
+      commit('addSingleCategory', payload);
     },
   },
 };
