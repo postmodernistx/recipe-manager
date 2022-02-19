@@ -1,19 +1,17 @@
 <template>
-  <section class="px-8 py-8 with-bg print:p-2">
+  <section class="recipe-wrapper">
     <div v-if="recipeData && !falsePath">
-      <div class="font-bold text-center max-w-lg mx-auto mb-8">
-        <span class="border-b-2 border-b-red-600 print:border-b-black text-xs text-red-600 print:text-black uppercase">
+      <div class="heading-container">
+        <span class="red-bordered-text">
           {{ locale.recipe }}
         </span>
-        <div class="font-normal font-serif mt-4 max-w-sm mx-auto">
+        <div class="recipe-description">
           {{ recipeData.description }}
         </div>
-        <h1 class="mt-4 text-3xl font-serif">{{ recipeData.name }}</h1>
+        <h1 class="recipe-name">{{ recipeData.name }}</h1>
       </div>
 
-      <div
-        class="text-center max-w-lg mx-auto mt-8 mb-12 font-serif text-sm md:grid md:grid-cols-5 md:justify-between print:grid print:justify-between print:grid-cols-5 print:my-2"
-      >
+      <div class="recipe-metadata">
         <div class="metadata" :title="locale.recipeData.yields">
           <CakeIcon class="h-5 w-5" />
           <span>{{ recipeData.metadata.yields }}</span>
@@ -38,15 +36,15 @@
       </div>
 
       <section class="six-columns">
-        <div class="mb-8 ingredients print:grid print:grid-cols-2">
+        <div class="recipe-ingredients-column ingredients">
           <div>
-            <h2 class="font-bold mb-2 uppercase">{{ locale.recipeData.ingredients }}</h2>
+            <h2>{{ locale.recipeData.ingredients }}</h2>
 
             <template
               v-for="(ingredientGroup, index) in processedRecipeData.ingredients"
               :key="`ig-${processedRecipeData.id}-${index}`"
             >
-              <h3 class="font-bold mb-1">{{ ingredientGroup.groupName }}</h3>
+              <h3>{{ ingredientGroup.groupName }}</h3>
               <ul>
                 <IngredientItem
                   v-for="(item, index2) in ingredientGroup.components"
@@ -59,11 +57,11 @@
             </template>
           </div>
 
-          <div class="mt-12" :title="locale.scale_recipe">
+          <div class="recipe-scaler" :title="locale.scale_recipe">
             <NumericStepper v-if="!falsePath" :initial-value="yields" @value-changed="scaleRecipe" />
           </div>
 
-          <div class="mt-12 print:mt-0">
+          <div class="nutrition-info">
             <h3>{{ locale.recipeData.nutritionalValue }}</h3>
             <ul>
               <li>{{ processedRecipeData.nutritionKcalTotal }} kcal {{ locale.total }}</li>
@@ -78,7 +76,7 @@
         </div>
 
         <div class="instructions">
-          <h2 class="font-bold mb-2 uppercase">{{ locale.recipeData.instructions }}</h2>
+          <h2>{{ locale.recipeData.instructions }}</h2>
           <ol class="recipe-steps">
             <RecipeStep
               v-for="(step, index) in recipeData.steps"
@@ -92,10 +90,8 @@
       </section>
 
       <section class="two-columns print:break-before-page">
-        <div v-if="recipeData.drink" class="font-bold my-8">
-          <span
-            class="border-b-2 border-b-red-600 print:border-b-black text-xs text-red-600 print:text-black uppercase"
-          >
+        <div v-if="recipeData.drink" class="recipe-additional-info">
+          <span class="red-bordered-text">
             {{ locale.recipeData.drink }}
           </span>
           <div class="font-normal mt-4">
@@ -103,10 +99,8 @@
           </div>
         </div>
 
-        <div v-if="recipeData.information" class="font-bold my-8">
-          <span
-            class="border-b-2 border-b-red-600 print:border-b-black text-xs text-red-600 print:text-black uppercase"
-          >
+        <div v-if="recipeData.information" class="recipe-additional-info">
+          <span class="red-bordered-text">
             {{ locale.recipeData.information }}
           </span>
           <div class="font-normal mt-4">
@@ -114,10 +108,8 @@
           </div>
         </div>
 
-        <div class="font-bold my-8">
-          <span
-            class="border-b-2 border-b-red-600 print:border-b-black text-xs text-red-600 print:text-black uppercase"
-          >
+        <div class="recipe-additional-info">
+          <span class="red-bordered-text">
             {{ locale.recipeData.source }}
           </span>
           <div class="font-normal mt-4">
@@ -265,51 +257,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.two-columns,
-.six-columns {
-  @apply md:grid md:gap-8 max-w-5xl mx-auto;
-}
-.two-columns {
-  @apply md:grid-cols-2;
-}
-
-.six-columns {
-  @apply md:grid-cols-6;
-}
-
-.six-columns .ingredients {
-  @apply col-span-2;
-}
-
-.six-columns .instructions {
-  @apply col-span-4;
-}
-
-h1,
-h2,
-h3 {
-  @apply dark:text-slate-200 print:text-black;
-}
-
-h3 {
-  @apply font-bold mb-1 mt-4 print:mt-2;
-}
-
-.metadata {
-  @apply flex gap-2 justify-center mb-4 md:mb-0;
-}
-
-.with-bg {
-  min-height: calc(100vh - 56px);
-  /* bg from https://heropatterns.com/ */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ff002f' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); /* eslint-disable-line */
-}
-
-@media print {
-  .with-bg {
-    @apply bg-none bg-transparent;
-  }
-}
-</style>

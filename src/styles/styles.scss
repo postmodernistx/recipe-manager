@@ -14,6 +14,12 @@ a {
   @apply text-cyan-800 underline dark:text-emerald-500;
 }
 
+@import 'recipe_views';
+
+/* ----------------------------------------------------------------------------
+// -------------------------------------- PRINT VIEW --------------------------
+// ------------------------------------------------------------------------- */
+
 @media print {
   body {
     @apply bg-none bg-white text-black;
@@ -27,5 +33,9 @@ a {
 
   h1, h2, h3, h4, h5, h6 {
     @apply text-black;
+  }
+
+  .with-bg {
+    @apply bg-none bg-transparent;
   }
 }

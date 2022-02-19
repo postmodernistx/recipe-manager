@@ -2,7 +2,7 @@ import { createApp, h, watch } from 'vue';
 import App from './App.vue';
 import store from './store';
 import router from './router';
-import './styles/styles.css';
+import './styles/styles.scss';
 
 const app = createApp({
   render() {

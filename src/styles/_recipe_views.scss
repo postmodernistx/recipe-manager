@@ -1,0 +1,86 @@
+/* ----------------------------------------------------------------------------
+// -------------------------------------- RECIPE VIEWS ------------------------
+// ------------------------------------------------------------------------- */
+
+.recipe-wrapper {
+  min-height: calc(100vh - 56px);
+  /* bg from https://heropatterns.com/ */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ff002f' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); /* eslint-disable-line */
+  @apply px-8 py-8 print:p-2;
+
+  .heading-container {
+    @apply font-bold text-center max-w-lg mx-auto mb-8;
+  }
+
+  .recipe-description {
+    @apply font-normal font-serif mt-4 max-w-sm mx-auto;
+  }
+
+  .recipe-name {
+    @apply mt-4 text-3xl font-serif;
+  }
+
+  // Headings
+  h1, h2, h3 {
+    @apply dark:text-slate-200 print:text-black;
+  }
+
+  h2 {
+    @apply font-bold mb-2 uppercase;
+  }
+
+  h3 {
+    @apply font-bold mb-1 mt-4 print:mt-2;
+  }
+
+  .red-bordered-text {
+    @apply border-b-2 border-b-red-600 print:border-b-black text-xs text-red-600 print:text-black uppercase;
+  }
+
+  // Recipe scale numeric stepper
+  .recipe-scaler {
+    @apply mt-12;
+  }
+
+  // Nutritional info
+  .nutrition-info {
+    @apply mt-12 print:mt-0;
+  }
+
+  // Pairs with, information, source
+  .recipe-additional-info {
+    @apply font-bold my-8;
+  }
+
+  // Yields, cook time, active time, rating
+  .recipe-metadata {
+    @apply text-center max-w-lg mx-auto mt-8 mb-12 font-serif text-sm md:grid md:grid-cols-5 md:justify-between print:grid print:justify-between print:grid-cols-5 print:my-2;
+    .metadata {
+      @apply flex gap-2 justify-center mb-4 md:mb-0;
+    }
+  }
+
+  // Layout
+  .two-columns,
+  .six-columns {
+    @apply md:grid md:gap-8 max-w-5xl mx-auto;
+  }
+  .two-columns {
+    @apply md:grid-cols-2;
+  }
+
+  .six-columns {
+    @apply md:grid-cols-6;
+  }
+
+  .six-columns .ingredients {
+    @apply col-span-2;
+  }
+
+  .six-columns .instructions {
+    @apply col-span-4;
+  }
+  .recipe-ingredients-column {
+    @apply mb-8 print:grid print:grid-cols-2;
+  }
+}
