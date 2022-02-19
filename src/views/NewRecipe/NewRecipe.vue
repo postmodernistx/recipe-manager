@@ -119,7 +119,7 @@
           {{ locale.recipeData.source }}
         </span>
         <div class="font-normal mt-4">
-          <div><input v-model="sourceName" type="text" class="source" /></div>
+          <div><input v-model="sourceName" :placeholder="locale.recipeData.source" type="text" class="source" /></div>
           <div><input v-model="sourceUrl" type="url" class="source" /></div>
           <div><input v-model="sourceDate" type="date" class="source" /></div>
         </div>
@@ -160,9 +160,9 @@ export default {
       activeTime: 0,
       passiveTime: 0,
       rating: 1,
-      pairsWith: 'Serving & drink suggestions…',
-      additionalInfo: 'Additional notes…',
-      sourceName: 'Source name',
+      pairsWith: this.locale?.placeholders.pairs_with ?? '',
+      additionalInfo: this.locale?.placeholders.additional_info ?? '',
+      sourceName: '',
       sourceUrl: 'https://',
       sourceDate: '2022-02-19',
       recipeSteps: ['Add description here'],

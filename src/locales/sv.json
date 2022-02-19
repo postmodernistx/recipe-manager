@@ -24,5 +24,9 @@
     "source": "Källa"
   },
   "recipe_not_found": "Inget sådant recept fanns!",
-  "scale_recipe": "Skala upp/ner receptet"
+  "scale_recipe": "Skala upp/ner receptet",
+  "placeholders": {
+    "pairs_with": "Serveringsförslag",
+    "additional_info": "Ytterligare info"
+  }
 }

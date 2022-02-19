@@ -24,5 +24,9 @@
     "source": "Lähde"
   },
   "recipe_not_found": "Reseptiä ei löytynyt.",
-  "scale_recipe": "Muuta reseptin annosmäärää"
+  "scale_recipe": "Muuta reseptin annosmäärää",
+  "placeholders": {
+    "pairs_with": "Tarjoiluehdotuksia",
+    "additional_info": "Lisäinfo"
+  }
 }
