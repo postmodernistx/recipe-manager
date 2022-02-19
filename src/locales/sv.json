@@ -27,6 +27,10 @@
   "scale_recipe": "Skala upp/ner receptet",
   "placeholders": {
     "pairs_with": "Serveringsförslag",
-    "additional_info": "Ytterligare info"
+    "additional_info": "Ytterligare info",
+    "add_recipe_group": "Lägg till gruppering"
+  },
+  "ux": {
+    "enter_to_add_recipe_step": "Lägg till steg genom att trycka enter medan du redigerar ett instruktionssteg"
   }
 }

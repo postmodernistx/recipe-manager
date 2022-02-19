@@ -1,5 +1,13 @@
 <template>
-  <input v-model="stepDesc" type="text" class="!text-left" @change="updateDescription" />
+  <span>
+    <input
+      v-model="stepDesc"
+      type="text"
+      class="!text-left"
+      @keydown.tab="tabOut($event)"
+      placeholder="…"
+    />
+  </span>
 </template>
 
 <script>
@@ -15,15 +23,15 @@ export default {
       required: true,
     },
   },
-  emits: ['stepDescriptionChanged'],
+  emits: ['stepDescriptionChanged', 'tabbed'],
   data() {
     return {
       stepDesc: this.$props.stepDescription ?? '',
     };
   },
   methods: {
-    updateDescription() {
-      this.$emit('stepDescriptionChanged', this.stepDesc, this.index);
+    tabOut(e) {
+      this.$emit('tabbed', { alt: e.altKey, shift: e.shiftKey });
     },
   },
 };

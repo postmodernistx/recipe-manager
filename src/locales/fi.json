@@ -27,6 +27,10 @@
   "scale_recipe": "Muuta reseptin annosmäärää",
   "placeholders": {
     "pairs_with": "Tarjoiluehdotuksia",
-    "additional_info": "Lisäinfo"
+    "additional_info": "Lisäinfo",
+    "add_recipe_group": "Lisää ryhmä"
+  },
+  "ux": {
+    "enter_to_add_recipe_step": "Lisää ohje enter -näppäimillä vaihetta muokattaessa"
   }
 }

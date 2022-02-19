@@ -27,6 +27,10 @@
   "scale_recipe": "Scale recipe",
   "placeholders": {
     "pairs_with": "Serving suggestions",
-    "additional_info": "Additional info"
+    "additional_info": "Additional info",
+    "add_recipe_group": "Add section"
+  },
+  "ux": {
+    "enter_to_add_recipe_step": "Press enter key to add a new recipe step while editing step"
   }
 }
