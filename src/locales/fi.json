@@ -1,6 +1,9 @@
 {
   "home": "Etusivu",
   "app_title": "Reseptejä",
+  "new_recipe": "Lisää respeti",
+  "save_recipe": "Lataa reseptin JSON -tiedosto",
+  "add_new_category": "Lisää uusi kategoria",
   "loading": "Ladataan",
   "all_categories": "Kaikki kategoriat",
   "recipe": "Resepti",

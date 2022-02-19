@@ -1,6 +1,9 @@
 {
   "home": "Hem",
   "app_title": "Receptdatabas",
+  "new_recipe": "Lägg till nytt recept",
+  "save_recipe": "Ladda ner receptet i JSON-format",
+  "add_new_category": "Lägg till ny kategori",
   "loading": "Laddar",
   "all_categories": "Alla kategorier",
   "recipe": "Recept",

@@ -1,5 +1,8 @@
 {
   "home": "Home",
+  "new_recipe": "Add new recipe",
+  "save_recipe": "Download recipe JSON file",
+  "add_new_category": "Add new category",
   "app_title": "Recipe Manager",
   "loading": "Loading",
   "all_categories": "All categories",
